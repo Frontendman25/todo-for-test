@@ -1,3 +1,21 @@
+html, body {
+  position: relative;
+}
+
 a:hover {
   text-decoration-line: none !important;
+}
+
+.react-calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  width: 330px;
+  line-height: .9;
+  font-size: 14px;
+}
+
+.react-calendar__month-view__weekdays {
+  margin-bottom: 10px;
 }

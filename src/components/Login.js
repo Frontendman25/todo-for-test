@@ -27,8 +27,6 @@ class Login extends Component {
       items: names
     })
 
-    
-
     localStorage.setItem("name", JSON.stringify(names))
   }
 

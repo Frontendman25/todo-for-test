@@ -71,7 +71,7 @@ class ToDoMain extends Component {
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto com-md-8 mt-4">
-            <h3 class="text-capitalize text-center">
+            <h3 className="text-capitalize text-center">
               <button className="btn btn-primary">
                 <Link to="/" style={{color: "#fff"}}>
                   Login

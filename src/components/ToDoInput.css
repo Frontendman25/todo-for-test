@@ -1,4 +1,4 @@
-.trash, .pen {
+.trash, .pen, .calendar {
   cursor: pointer;
   transition: .15s;
 }
@@ -9,4 +9,8 @@
 
 .pen:hover {
   color: #218838;
+}
+
+.calendar:hover {
+  color: #0069d9;
 }
