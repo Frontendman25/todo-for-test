@@ -1,0 +1,12 @@
+.trash, .pen {
+  cursor: pointer;
+  transition: .15s;
+}
+
+.trash:hover {
+  color: #c82333;
+}
+
+.pen:hover {
+  color: #218838;
+}
