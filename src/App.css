@@ -19,3 +19,11 @@ a:hover {
 .react-calendar__month-view__weekdays {
   margin-bottom: 10px;
 }
+
+span.error {
+  margin-top: 2px;
+  display: block;
+  width: 100%;
+  color: red;
+  font-size: 12px;
+}

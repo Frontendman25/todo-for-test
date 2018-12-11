@@ -5,9 +5,10 @@ import ToDoInput from './ToDoInput'
 
 class Login extends Component {
   state = {
-    items: [],
+    items: localStorage.getItem("name") || [],
     name: '',
-    access: false
+    access: false,
+    nameError: ''
   }
 
   handleChange = (e) => {
@@ -19,18 +20,29 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    let names = [...this.state.items, this.state.name]
+    if(!this.state.items.includes(this.state.name)){
+      let names = [this.state.items, this.state.name]
+      
+      this.setState({
+        ...this.state,
+        access: true,
+        items: names,
+        nameError: ''
+      })
 
-    this.setState({
-      ...this.state,
-      access: true,
-      items: names
-    })
+      localStorage.setItem("name", JSON.stringify(names))
+    }else{
+      this.setState({
+        ...this.state,
+        nameError: 'This name is already exists'
+      })
+    }
 
-    localStorage.setItem("name", JSON.stringify(names))
+    
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="container">
         <div className="row">
@@ -44,6 +56,7 @@ class Login extends Component {
                   type="text"
                   placeholder="Login"
                 />
+                {this.state.nameError ? <span className="error">{this.state.nameError}</span> : null}
                 <button
                   className={"btn btn-block btn-primary mt-3"}
                   type="submit"
