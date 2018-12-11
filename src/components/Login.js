@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import ToDoList from './ToDoList'
-import ToDoInput from './ToDoInput'
+import storageService from '../storageService';
 
 class Login extends Component {
   state = {
-    items: localStorage.getItem("name") || [],
+    items: storageService.getItem('name') || [],
     name: '',
     access: false,
     nameError: ''
@@ -21,28 +20,21 @@ class Login extends Component {
     e.preventDefault()
 
     if(!this.state.items.includes(this.state.name)){
-      let names = [this.state.items, this.state.name]
-      
-      this.setState({
-        ...this.state,
-        access: true,
+      let names = [ ...this.state.items, this.state.name ];
+
+      this.setState((state, props) => ({
         items: names,
-        nameError: ''
-      })
+      }))
 
       localStorage.setItem("name", JSON.stringify(names))
     }else{
       this.setState({
-        ...this.state,
         nameError: 'This name is already exists'
       })
     }
-
-    
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="container">
         <div className="row">
